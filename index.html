@@ -3,40 +3,40 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MacroTrack — Seguimiento de Macronutrientes</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<title>MacroZen — Tu Nutrición, en Equilibrio</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <style>
 :root {
-  --green-dark: #0f4c2a;
-  --green: #1a7a42;
-  --green-light: #d0f0de;
-  --green-muted: #e8f7ee;
-  --amber: #d97706;
-  --amber-light: #fef3c7;
-  --red: #c0392b;
-  --red-light: #fdecea;
-  --blue: #2563eb;
-  --blue-light: #eff6ff;
-  --purple: #7c3aed;
+  --green-dark: #0a3d2b;
+  --green: #0e7c52;
+  --green-light: #c8f0df;
+  --green-muted: #e6f7f0;
+  --amber: #c47b0a;
+  --amber-light: #fef5e0;
+  --red: #b5281c;
+  --red-light: #fce9e8;
+  --blue: #1d4ed8;
+  --blue-light: #eef2ff;
+  --purple: #6d28d9;
   --purple-light: #f5f3ff;
-  --bg: #f7f8f5;
+  --bg: #f4f6f3;
   --surface: #ffffff;
-  --surface2: #f2f4f0;
-  --border: #e2e5de;
-  --text: #1a1f16;
-  --text2: #4b5244;
-  --text3: #8a9485;
-  --radius: 14px;
-  --radius-sm: 8px;
-  --shadow: 0 1px 4px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04);
-  --shadow-lg: 0 8px 32px rgba(0,0,0,0.10);
+  --surface2: #eef1ec;
+  --border: #dde2d9;
+  --text: #141a12;
+  --text2: #3d4a38;
+  --text3: #7a8a74;
+  --radius: 16px;
+  --radius-sm: 10px;
+  --shadow: 0 2px 8px rgba(0,0,0,0.07), 0 6px 24px rgba(0,0,0,0.04);
+  --shadow-lg: 0 12px 40px rgba(0,0,0,0.12);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   background: var(--bg);
   color: var(--text);
   font-size: 14px;
@@ -64,7 +64,7 @@ body {
   font-size: 18px;
 }
 .header-title { font-size: 16px; font-weight: 600; letter-spacing: -0.01em; }
-.header-date { font-size: 12px; color: rgba(255,255,255,0.55); font-family: 'DM Mono', monospace; }
+.header-date { font-size: 12px; color: rgba(255,255,255,0.55); font-family: 'JetBrains Mono', monospace; }
 
 /* ── Nav ── */
 .nav { background: var(--surface); border-bottom: 1px solid var(--border); display: flex; padding: 0 24px; }
@@ -108,7 +108,7 @@ body {
 /* ── Inputs ── */
 .input-row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
 input[type=text], input[type=number], select {
-  height: 38px; font-size: 13px; padding: 0 12px; font-family: 'DM Sans', sans-serif;
+  height: 38px; font-size: 13px; padding: 0 12px; font-family: 'Plus Jakarta Sans', sans-serif;
   border-radius: var(--radius-sm); border: 1px solid var(--border);
   background: var(--surface); color: var(--text); outline: none;
   transition: border-color .15s;
@@ -121,7 +121,7 @@ select { width: 100px; }
 /* ── Buttons ── */
 .btn {
   height: 38px; padding: 0 16px; border-radius: var(--radius-sm); border: 1px solid var(--border);
-  background: transparent; color: var(--text); font-size: 13px; font-family: 'DM Sans', sans-serif;
+  background: transparent; color: var(--text); font-size: 13px; font-family: 'Plus Jakarta Sans', sans-serif;
   cursor: pointer; font-weight: 500; transition: all .15s; white-space: nowrap;
 }
 .btn:hover { background: var(--surface2); }
@@ -145,7 +145,7 @@ select { width: 100px; }
 .result-item:last-child { border-bottom: none; }
 .result-item:hover { background: var(--green-muted); }
 .result-name { font-weight: 500; font-size: 13px; }
-.result-meta { font-size: 11px; color: var(--text3); font-family: 'DM Mono', monospace; }
+.result-meta { font-size: 11px; color: var(--text3); font-family: 'JetBrains Mono', monospace; }
 
 /* ── Preview chips ── */
 .preview {
@@ -156,7 +156,7 @@ select { width: 100px; }
 .chips { display: flex; gap: 6px; flex-wrap: wrap; }
 .chip {
   padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 500;
-  font-family: 'DM Mono', monospace;
+  font-family: 'JetBrains Mono', monospace;
 }
 .chip-cal  { background: #d1fae5; color: #065f46; }
 .chip-prot { background: #dbeafe; color: #1e40af; }
@@ -207,12 +207,12 @@ tbody tr:hover td { background: var(--surface2); }
 }
 .metric-label { font-size: 11px; color: var(--text3); font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; }
 .metric-val { font-size: 28px; font-weight: 600; color: var(--text); margin: 4px 0 2px; letter-spacing: -0.02em; }
-.metric-sub { font-size: 11px; font-family: 'DM Mono', monospace; }
+.metric-sub { font-size: 11px; font-family: 'JetBrains Mono', monospace; }
 
 .progress-item { margin-bottom: 16px; }
 .progress-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
 .progress-name { font-size: 13px; font-weight: 500; }
-.progress-vals { font-size: 11px; font-family: 'DM Mono', monospace; color: var(--text3); }
+.progress-vals { font-size: 11px; font-family: 'JetBrains Mono', monospace; color: var(--text3); }
 .progress-pct { font-weight: 600; margin-left: 6px; }
 .bar-bg { height: 8px; background: var(--surface2); border-radius: 4px; overflow: hidden; }
 .bar-fill { height: 100%; border-radius: 4px; transition: width .6s cubic-bezier(.4,0,.2,1); }
@@ -237,7 +237,7 @@ tbody tr:hover td { background: var(--surface2); }
 .legend-item { display: flex; align-items: center; gap: 8px; }
 .legend-sq { width: 10px; height: 10px; border-radius: 3px; flex-shrink: 0; }
 .legend-name { font-size: 12px; font-weight: 500; }
-.legend-sub { font-size: 11px; color: var(--text3); font-family: 'DM Mono', monospace; }
+.legend-sub { font-size: 11px; color: var(--text3); font-family: 'JetBrains Mono', monospace; }
 
 /* ── Export btn ── */
 .toolbar { display: flex; justify-content: flex-end; margin-bottom: 12px; gap: 8px; }
@@ -258,7 +258,7 @@ tbody tr:hover td { background: var(--surface2); }
   <div class="header-brand">
     <div class="header-logo">🥗</div>
     <div>
-      <div class="header-title">MacroTrack</div>
+      <div class="header-title">MacroZen</div>
     </div>
   </div>
   <div class="header-date" id="header-date"></div>
@@ -302,7 +302,15 @@ tbody tr:hover td { background: var(--surface2); }
   </div>
 
   <div class="card">
-    <div class="card-title">Registro de hoy — <span id="fecha-reg"></span></div>
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:16px">
+      <div class="card-title" style="margin-bottom:0">Registro del día</div>
+      <div style="display:flex;align-items:center;gap:8px">
+        <button class="btn btn-sm" onclick="cambiarDia(-1)" title="Día anterior">←</button>
+        <input type="date" id="fecha-selector" style="height:34px;font-size:13px;padding:0 10px;border-radius:var(--radius-sm);border:1px solid var(--border);background:var(--surface);color:var(--text);font-family:inherit" onchange="onFechaChange()">
+        <button class="btn btn-sm" onclick="cambiarDia(1)" title="Día siguiente">→</button>
+        <button class="btn btn-sm btn-primary" onclick="irAHoy()">Hoy</button>
+      </div>
+    </div>
     <div class="toolbar">
       <button class="btn btn-sm" onclick="exportCSV()">⬇ Exportar CSV</button>
       <button class="btn btn-sm btn-danger" onclick="clearHoy()">🗑 Limpiar día</button>
@@ -381,6 +389,7 @@ tbody tr:hover td { background: var(--surface2); }
   <div class="card">
     <div class="card-title">Datos guardados</div>
     <div style="font-size:13px;color:var(--text2);line-height:1.8" id="storage-info"></div>
+    <div style="margin-top:12px;padding:10px;background:var(--surface2);border-radius:var(--radius-sm);font-size:11px;color:var(--text3)">MacroZen v1.0 — Hecho con ❤️ para atletas y personas que cuidan su nutrición.</div>
     <div style="margin-top:12px">
       <button class="btn btn-danger" onclick="clearAll()">🗑 Borrar todos los datos</button>
     </div>
@@ -468,6 +477,40 @@ const DB = [
   {n:'Chirimoya',cal:75,prot:1.6,carb:18,fat:0.7,fib:3,agua:79,per100:true},
   {n:'Coco rallado',cal:354,prot:3.3,carb:15,fat:33,fib:9,agua:47,per100:true},
   {n:'Agua de coco',cal:19,prot:0.7,carb:3.7,fat:0.2,fib:1.1,agua:95,per100:true},
+
+  // 🇵🇪 Comida peruana
+  {n:'Ceviche de pescado',cal:90,prot:14,carb:5,fat:2,fib:1,agua:78,per100:true},
+  {n:'Lomo saltado',cal:195,prot:16,carb:14,fat:8,fib:1.5,agua:60,per100:true},
+  {n:'Ají de gallina',cal:165,prot:12,carb:11,fat:8,fib:1.2,agua:65,per100:true},
+  {n:'Arroz con leche peruano',cal:145,prot:3.5,carb:27,fat:3,fib:0.2,agua:62,per100:true},
+  {n:'Causa limeña',cal:130,prot:5,carb:20,fat:4,fib:1.5,agua:68,per100:true},
+  {n:'Papa a la huancaína',cal:148,prot:5.5,carb:18,fat:6,fib:1.8,agua:67,per100:true},
+  {n:'Pollo a la brasa (pechuga s/piel)',cal:175,prot:28,carb:0,fat:6.5,fib:0,agua:65,per100:true},
+  {n:'Pollo a la brasa (pierna c/piel)',cal:230,prot:22,carb:0,fat:15,fib:0,agua:60,per100:true},
+  {n:'Anticucho de corazón',cal:185,prot:22,carb:3,fat:9,fib:0.5,agua:62,per100:true},
+  {n:'Seco de res',cal:200,prot:18,carb:8,fat:10,fib:2,agua:60,per100:true},
+  {n:'Tacu tacu',cal:190,prot:8,carb:28,fat:5,fib:4,agua:58,per100:true},
+  {n:'Arroz con pollo',cal:155,prot:12,carb:18,fat:4,fib:1,agua:64,per100:true},
+  {n:'Sopa criolla',cal:95,prot:6,carb:12,fat:3,fib:1,agua:75,per100:true},
+  {n:'Mazamorra morada',cal:98,prot:1.2,carb:24,fat:0.3,fib:1.5,agua:72,per100:true},
+  {n:'Picarones (1 unidad)',cal:95,prot:1.5,carb:16,fat:3.5,fib:0.8,agua:40,per100:false,pesoU:45},
+  {n:'Pan francés / Baguette',cal:272,prot:9,carb:55,fat:1.5,fib:2.3,agua:33,per100:true},
+  {n:'Pan de molde integral',cal:247,prot:9,carb:42,fat:4,fib:6,agua:38,per100:true},
+  {n:'Chicha morada (vaso 250ml)',cal:90,prot:0.5,carb:22,fat:0.1,fib:0.2,agua:225,per100:false,pesoU:250},
+  {n:'Emoliente (vaso 250ml)',cal:45,prot:0.3,carb:11,fat:0.1,fib:0.5,agua:238,per100:false,pesoU:250},
+  {n:'Leche evaporada entera',cal:135,prot:6.8,carb:10,fat:7.6,fib:0,agua:74,per100:true},
+  {n:'Leche evaporada light',cal:78,prot:7.5,carb:10,fat:0.5,fib:0,agua:82,per100:true},
+  {n:'Quinua cocida',cal:120,prot:4.4,carb:22,fat:1.9,fib:2.8,agua:72,per100:true},
+  {n:'Kiwicha cocida',cal:102,prot:3.8,carb:19,fat:1.5,fib:2.1,agua:75,per100:true},
+  {n:'Maca en polvo',cal:325,prot:10,carb:65,fat:2.2,fib:8.5,agua:5,per100:true},
+  {n:'Camu camu',cal:17,prot:0.4,carb:4,fat:0.1,fib:0.3,agua:94,per100:true},
+  {n:'Sacha inchi',cal:592,prot:33,carb:18,fat:48,fib:18,agua:4,per100:true},
+  {n:'Oca cocida',cal:61,prot:1.1,carb:14,fat:0.1,fib:1,agua:84,per100:true},
+  {n:'Olluco cocido',cal:57,prot:1.1,carb:13,fat:0.1,fib:0.8,agua:85,per100:true},
+  {n:'Mashua cocida',cal:52,prot:1.5,carb:11,fat:0.2,fib:0.9,agua:86,per100:true},
+  {n:'Choclo desgranado cocido',cal:96,prot:3.4,carb:21,fat:1.5,fib:2.4,agua:73,per100:true},
+  {n:'Frejol canario cocido',cal:140,prot:9,carb:24,fat:0.6,fib:6,agua:63,per100:true},
+  {n:'Pallares cocidos',cal:115,prot:7.8,carb:20,fat:0.4,fib:5.5,agua:67,per100:true},
   // Carbohidratos adicionales
   {n:'Yuca / Mandioca cocida',cal:160,prot:1.4,carb:38,fat:0.3,fib:1.8,agua:60,per100:true},
   {n:'Maíz cocido',cal:96,prot:3.4,carb:21,fat:1.5,fib:2.4,agua:73,per100:true},
@@ -519,7 +562,8 @@ const DB = [
 ];
 
 // ── Estado global ────────────────────────────────────────────────
-const HOY = new Date().toISOString().slice(0,10);
+let FECHA_ACTIVA = new Date().toISOString().slice(0,10);
+function getFechaActiva() { return FECHA_ACTIVA; }
 let selectedFood = null;
 let mealActual = 'Desayuno';
 let donutChart = null, barChart = null;
@@ -556,10 +600,20 @@ function saveMetas() {
 
 // ── Init ─────────────────────────────────────────────────────────
 window.addEventListener('DOMContentLoaded', () => {
+  // Hide splash after 1.8s
+  setTimeout(() => {
+    const splash = document.getElementById('splash');
+    if (splash) { splash.style.opacity = '0'; setTimeout(() => splash.style.display = 'none', 600); }
+  }, 1800);
+
   const hoy = new Date();
   const opts = {weekday:'long',year:'numeric',month:'long',day:'numeric'};
   document.getElementById('header-date').textContent = hoy.toLocaleDateString('es-PE', opts);
-  document.getElementById('fecha-reg').textContent = HOY;
+  const fechaSelector = document.getElementById('fecha-selector');
+  if (fechaSelector) {
+    fechaSelector.value = FECHA_ACTIVA;
+    fechaSelector.max = new Date().toISOString().slice(0,10);
+  }
 
   const m = getMetas();
   document.getElementById('m-prot').value = m.prot;
@@ -700,13 +754,13 @@ function agregar() {
   const m = calcMacros(selectedFood, g);
   const u = document.getElementById('unidad').value;
   const c = document.getElementById('cantidad').value;
-  const reg = getRegistro(HOY);
+  const reg = getRegistro(FECHA_ACTIVA);
   reg.push({
     nombre: selectedFood.n, comida: mealActual,
     cantStr: `${c}${u==='u'?'u':u}`, ...m,
     ts: Date.now()
   });
-  saveRegistro(HOY, reg);
+  saveRegistro(FECHA_ACTIVA, reg);
   renderRegistro();
   document.getElementById('food-search').value = '';
   selectedFood = null;
@@ -719,16 +773,46 @@ function agregar() {
 }
 
 function eliminar(idx) {
-  const reg = getRegistro(HOY);
+  const reg = getRegistro(FECHA_ACTIVA);
   reg.splice(idx, 1);
-  saveRegistro(HOY, reg);
+  saveRegistro(FECHA_ACTIVA, reg);
   renderRegistro();
   toast('Eliminado');
 }
 
 // ── Render tabla ─────────────────────────────────────────────────
+function onFechaChange() {
+  const sel = document.getElementById('fecha-selector');
+  if (sel && sel.value) {
+    FECHA_ACTIVA = sel.value;
+    renderRegistro();
+    toast('Viendo ' + FECHA_ACTIVA);
+  }
+}
+
+function cambiarDia(delta) {
+  const d = new Date(FECHA_ACTIVA + 'T12:00:00');
+  d.setDate(d.getDate() + delta);
+  const nueva = d.toISOString().slice(0,10);
+  const hoyReal = new Date().toISOString().slice(0,10);
+  if (nueva > hoyReal) { toast('No puedes ir a días futuros'); return; }
+  FECHA_ACTIVA = nueva;
+  const sel = document.getElementById('fecha-selector');
+  if (sel) sel.value = FECHA_ACTIVA;
+  renderRegistro();
+  toast('Viendo ' + FECHA_ACTIVA);
+}
+
+function irAHoy() {
+  FECHA_ACTIVA = new Date().toISOString().slice(0,10);
+  const sel = document.getElementById('fecha-selector');
+  if (sel) sel.value = FECHA_ACTIVA;
+  renderRegistro();
+  toast('Viendo hoy');
+}
+
 function renderRegistro() {
-  const reg = getRegistro(HOY);
+  const reg = getRegistro(FECHA_ACTIVA);
   const tbody = document.getElementById('reg-body');
   const tfoot = document.getElementById('reg-foot');
 
@@ -793,7 +877,7 @@ function renderRegistro() {
 
 // ── Dashboard ────────────────────────────────────────────────────
 function renderDashboard() {
-  const reg = getRegistro(HOY);
+  const reg = getRegistro(FECHA_ACTIVA);
   if (!reg.length) {
     document.getElementById('dash-empty').style.display = 'block';
     document.getElementById('dash-content').style.display = 'none';
@@ -922,7 +1006,8 @@ function renderHistorial() {
     const tot = reg.reduce((a,r)=>({cal:a.cal+r.cal,prot:a.prot+r.prot,carb:a.carb+r.carb,fat:a.fat+r.fat}),{cal:0,prot:0,carb:0,fat:0});
     const calPct = meta.cal ? Math.round(tot.cal/meta.cal*100) : 0;
     const protPct = meta.prot ? Math.round(tot.prot/meta.prot*100) : 0;
-    const esHoy = fecha === HOY;
+    const hoyReal = new Date().toISOString().slice(0,10);
+    const esHoy = fecha === hoyReal;
     return `<div style="padding:12px;border:1px solid var(--border);border-radius:var(--radius-sm);margin-bottom:8px;background:${esHoy?'var(--green-muted)':'var(--surface2)'}">
       <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
         <div>
@@ -942,7 +1027,7 @@ function renderHistorial() {
 // ── Utilidades ───────────────────────────────────────────────────
 function clearHoy() {
   if (!confirm('¿Borrar todos los alimentos de hoy?')) return;
-  localStorage.removeItem('mt_reg_'+HOY);
+  localStorage.removeItem('mt_reg_'+FECHA_ACTIVA);
   renderRegistro();
   toast('Registro del día borrado');
   updateStorageInfo();
@@ -957,14 +1042,14 @@ function clearAll() {
 }
 
 function exportCSV() {
-  const reg = getRegistro(HOY);
+  const reg = getRegistro(FECHA_ACTIVA);
   if (!reg.length) { alert('No hay datos para exportar.'); return; }
   const header = 'Fecha,Comida,Alimento,Cantidad,Calorías,Proteínas(g),Carbos(g),Grasas(g),Fibra(g)';
-  const rows = reg.map(r => `${HOY},${r.comida},"${r.nombre}",${r.cantStr},${r.cal},${r.prot},${r.carb},${r.fat},${r.fib}`);
+  const rows = reg.map(r => `${FECHA_ACTIVA},${r.comida},"${r.nombre}",${r.cantStr},${r.cal},${r.prot},${r.carb},${r.fat},${r.fib}`);
   const csv = [header, ...rows].join('\n');
   const a = document.createElement('a');
   a.href = 'data:text/csv;charset=utf-8,\uFEFF' + encodeURIComponent(csv);
-  a.download = `macros_${HOY}.csv`;
+  a.download = `macros_${FECHA_ACTIVA}.csv`;
   a.click();
   toast('CSV exportado ✓');
 }
